@@ -1,5 +1,5 @@
 var express = require('express');
-const skills = require('../controllers/skills');
+var skills = require('../controllers/skills');
 var router = express.Router();
 var skillsCtrl = require('../controllers/skills');
 
@@ -13,11 +13,13 @@ router.get('/', skillsCtrl.index);
 router.get('/new', skillsCtrl.new);
 // Get /skills/:id 
 router.get('/:id', skillsCtrl.show);
+// GET /skills/edit/:id
+router.get('/edit/:id', skillsCtrl.edit);
 // POST /skills
 router.post('/', skillsCtrl.create);
 // DELETE /skills/:id
 router.delete('/:id', skillsCtrl.delete);
-// GET /skills/edit/:id
-router.get('/edit/:id', skillsCtrl.edit);
+// PUT /skill/:id
+router.put('/:id', skillsCtrl.update);
 
 module.exports = router;
